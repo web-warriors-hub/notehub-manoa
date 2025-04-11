@@ -43,3 +43,14 @@ model Stuff {
   condition Condition @default(good)
   owner     String
 }
+
+model Note {
+  email         String; @default(anonymous)
+  title:        String;
+  department:   String;
+  class:        String;
+  semester:     String;
+  professor:    String;
+  description:  String;
+  documentLink: String
+}

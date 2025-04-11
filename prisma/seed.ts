@@ -21,21 +21,23 @@ async function main() {
     });
     // console.log(`  Created user: ${user.email} with role: ${user.role}`);
   });
-  for (const data of config.defaultData) {
-    const condition = data.condition as Condition || Condition.good;
-    console.log(`  Adding stuff: ${JSON.stringify(data)}`);
-    // eslint-disable-next-line no-await-in-loop
-    await prisma.stuff.upsert({
-      where: { id: config.defaultData.indexOf(data) + 1 },
+  config.defaultNotes.forEach(async (note, index) => {
+    console.log('Adding Note');
+    await prisma.note.upsert({
+      where: { id: index },
       update: {},
       create: {
-        name: data.name,
-        quantity: data.quantity,
-        owner: data.owner,
-        condition,
+        email: note.email,
+        title: note.title,
+        department: note.department,
+        class: note.class,
+        semester: note.semester,
+        professor: note.professor,
+        description: note.description,
+        documentLink: note.documentLink,
       },
     });
-  }
+  });
 }
 main()
   .then(() => prisma.$disconnect())
