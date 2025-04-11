@@ -12,3 +12,28 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.navbar{
+  background: #024731;
+  width: 1440px;
+  height: 114px;
+  flex-shrink: 0;
+}
+
+.logobar{
+  width: 280px;
+height: 80px;
+flex-shrink: 0;
+background: #F5BD89;
+color: #090909;
+
+text-align: center;
+font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+display: flex;
+justify-content: center; /* centers horizontally */
+align-items: center;     /* centers vertically */
+}
