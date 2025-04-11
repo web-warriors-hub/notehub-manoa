@@ -1,6 +1,6 @@
 'use server';
 
-import { Stuff, Condition } from '@prisma/client';
+import { Stuff, Condition, Note } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -28,6 +28,60 @@ export async function addStuff(stuff: { name: string; quantity: number; owner: s
     },
   });
   // After adding, redirect to the list page
+  redirect('/list');
+}
+
+/**
+ * Adds a new note to the database.
+ * @param note, an object with the following properties:
+ * email, title, department, class, semester, professor, description, documentLink
+ */
+export async function addNote(note: {
+  email: string;
+  title: string;
+  department: string;
+  class: string;
+  semester: string;
+  professor: string;
+  description: string;
+  documentLink: string
+}) {
+  await prisma.note.create({
+    data: {
+      email: note.email,
+      title: note.title,
+      department: note.department,
+      class: note.class,
+      semester: note.semester,
+      professor: note.professor,
+      description: note.description,
+      documentLink: note.documentLink,
+    },
+  });
+  // After adding, redirect to the list page
+  redirect('/list');
+}
+
+/**
+ * Edits an existing stuff in the database.
+ * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
+ */
+export async function editNote(note: Note) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.note.update({
+    where: { id: note.id },
+    data: {
+      email: note.email,
+      title: note.title,
+      department: note.department,
+      class: note.class,
+      semester: note.semester,
+      professor: note.professor,
+      description: note.description,
+      documentLink: note.documentLink,
+    },
+  });
+  // After updating, redirect to the list page
   redirect('/list');
 }
 
