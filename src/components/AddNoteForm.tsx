@@ -6,8 +6,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import swal from 'sweetalert';
 import { redirect } from 'next/navigation';
+// eslint-disable-next-line import/extensions
 import { addNote } from '@/lib/dbActions';
+// eslint-disable-next-line import/extensions
 import LoadingSpinner from '@/components/LoadingSpinner';
+// eslint-disable-next-line import/extensions
 import { AddNoteSchema } from '@/lib/validationSchemas';
 
 const onSubmit = async (data: {
@@ -51,7 +54,7 @@ const AddNoteForm: React.FC = () => {
       <Row className="justify-content-center">
         <Col xs={16}>
           <Col className="text-center">
-            <h2>Add Note</h2>
+            <h2>Upload Note</h2>
           </Col>
           <Card>
             <Card.Body>
@@ -68,26 +71,90 @@ const AddNoteForm: React.FC = () => {
                       <div className="invalid-feedback">{errors.email?.message}</div>
                     </Form.Group>
                   </Col>
-                  <Form.Group>
-                    <Form.Label>Title</Form.Label>
-                    <input
-                      type="text"
-                      {...register('title')}
-                      className={`form-control ${errors.title ? 'is-invalid' : ''}`}
-                    />
-                    <div className="invalid-feedback">{errors.title?.message}</div>
-                  </Form.Group>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Note Title</Form.Label>
+                      <input
+                        type="text"
+                        {...register('title')}
+                        className={`form-control ${errors.title ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.title?.message}</div>
+                    </Form.Group>
+                  </Col>
                 </Row>
-                <Form.Group>
-                  <Form.Label>Condition</Form.Label>
-                  <select {...register('condition')} className={`form-control ${errors.condition ? 'is-invalid' : ''}`}>
-                    <option value="excellent">Excellent</option>
-                    <option value="good">Good</option>
-                    <option value="fair">Fair</option>
-                    <option value="poor">Poor</option>
-                  </select>
-                  <div className="invalid-feedback">{errors.condition?.message}</div>
-                </Form.Group>
+                <Row>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Department</Form.Label>
+                      <input
+                        type="text"
+                        {...register('department')}
+                        className={`form-control ${errors.department ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.department?.message}</div>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Class</Form.Label>
+                      <input
+                        type="text"
+                        {...register('class')}
+                        className={`form-control ${errors.class ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.class?.message}</div>
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Semester</Form.Label>
+                      <input
+                        type="text"
+                        {...register('semester')}
+                        className={`form-control ${errors.semester ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.semester?.message}</div>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Professor</Form.Label>
+                      <input
+                        type="text"
+                        {...register('professor')}
+                        className={`form-control ${errors.professor ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.professor?.message}</div>
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Description</Form.Label>
+                      <input
+                        type="text"
+                        {...register('description')}
+                        className={`form-control ${errors.description ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.description?.message}</div>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Note Link</Form.Label>
+                      <input
+                        type="text"
+                        {...register('documentLink')}
+                        className={`form-control ${errors.documentLink ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.documentLink?.message}</div>
+                    </Form.Group>
+                  </Col>
+                </Row>
                 <input type="hidden" {...register('owner')} value={currentUser} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">
@@ -112,4 +179,4 @@ const AddNoteForm: React.FC = () => {
   );
 };
 
-export default AddStuffForm;
+export default AddNoteForm;

@@ -44,7 +44,8 @@ export async function addNote(note: {
   semester: string;
   professor: string;
   description: string;
-  documentLink: string
+  documentLink: string;
+  owner: string
 }) {
   await prisma.note.create({
     data: {
@@ -56,6 +57,7 @@ export async function addNote(note: {
       professor: note.professor,
       description: note.description,
       documentLink: note.documentLink,
+      owner: note.owner,
     },
   });
   // After adding, redirect to the list page
@@ -79,6 +81,7 @@ export async function editNote(note: Note) {
       professor: note.professor,
       description: note.description,
       documentLink: note.documentLink,
+      owner: note.owner,
     },
   });
   // After updating, redirect to the list page
