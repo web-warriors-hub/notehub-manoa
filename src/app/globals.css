@@ -37,3 +37,13 @@ display: flex;
 justify-content: center; /* centers horizontally */
 align-items: center;     /* centers vertically */
 }
+
+.navbaritems{
+  color: #FFF;
+
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

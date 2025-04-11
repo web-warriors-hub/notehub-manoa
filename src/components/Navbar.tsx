@@ -16,22 +16,49 @@ const NavBar: React.FC = () => {
   return (
     <Navbar className="navbar">
       <Container>
-        <Navbar.Brand className="logobar" href="/">kjkjlkj</Navbar.Brand>
+        <Navbar.Brand className="logobar" href="/">NoteHub-Mānoa</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser
               ? [
-                  <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
-                    Add Stuff
+                  <Nav.Link
+                    id="add-stuff-nav"
+                    href="/add"
+                    key="add"
+                    active={pathName === '/add'}
+                    className="navbaritems"
+                  >
+                    Upload Notes
                   </Nav.Link>,
-                  <Nav.Link id="list-stuff-nav" href="/list" key="list" active={pathName === '/list'}>
-                    List Stuff
+                  <Nav.Link
+                    id="list-stuff-nav"
+                    href="/list"
+                    key="list"
+                    active={pathName === '/list'}
+                    className="navbaritems"
+                  >
+                    Your Notes
+                  </Nav.Link>,
+                  <Nav.Link
+                    id="list-stuff-nav"
+                    href="/list"
+                    key="list"
+                    active={pathName === '/list'}
+                    className="navbaritems"
+                  >
+                    View Notes
                   </Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (
-              <Nav.Link id="admin-stuff-nav" href="/admin" key="admin" active={pathName === '/admin'}>
+              <Nav.Link
+                id="admin-stuff-nav"
+                href="/admin"
+                key="admin"
+                active={pathName === '/admin'}
+                className="navbaritems"
+              >
                 Admin
               </Nav.Link>
             ) : (
