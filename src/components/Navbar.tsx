@@ -14,50 +14,50 @@ const NavBar: React.FC = () => {
   const role = userWithRole?.randomKey;
   const pathName = usePathname();
   return (
-    <Navbar className="navbar">
+    <Navbar className="navbaritems">
       <Container>
         <Navbar.Brand className="logobar" href="/">NoteHub-Mānoa</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
+          <Nav className="me-auto justify-content-start navbaritems">
+          <Nav.Link
+            id="all-notes-nav"
+            className="navbaritems"
+            href="/notes"
+            key="notes"
+            active={pathName === '/notes'}
+          >
+            View Notes
+          </Nav.Link>
             {currentUser
               ? [
                   <Nav.Link
                     id="add-stuff-nav"
+                    className="navbaritems"
                     href="/add"
                     key="add"
                     active={pathName === '/add'}
-                    className="navbaritems"
                   >
                     Upload Notes
                   </Nav.Link>,
                   <Nav.Link
                     id="list-stuff-nav"
+                    className="navbaritems"
                     href="/list"
                     key="list"
                     active={pathName === '/list'}
-                    className="navbaritems"
                   >
                     Your Notes
-                  </Nav.Link>,
-                  <Nav.Link
-                    id="list-stuff-nav"
-                    href="/list"
-                    key="list"
-                    active={pathName === '/list'}
-                    className="navbaritems"
-                  >
-                    View Notes
                   </Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (
               <Nav.Link
                 id="admin-stuff-nav"
+                className="navbaritems"
                 href="/admin"
                 key="admin"
                 active={pathName === '/admin'}
-                className="navbaritems"
               >
                 Admin
               </Nav.Link>
@@ -67,7 +67,7 @@ const NavBar: React.FC = () => {
           </Nav>
           <Nav>
             {session ? (
-              <NavDropdown id="login-dropdown" title={currentUser}>
+              <NavDropdown id="login-dropdown" className="navbaritems" title={currentUser}>
                 <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
                   <BoxArrowRight />
                   Sign Out
