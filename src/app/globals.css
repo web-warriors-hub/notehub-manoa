@@ -12,3 +12,54 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.navbar {
+  background: #024731;
+  height: 114px;
+  flex-shrink: 0;
+}
+
+/* For navbar items */
+.logobar {
+  width: 280px;
+  height: 80px;
+  flex-shrink: 0;
+  background: #f5bd89;
+  color: #090909;
+
+  text-align: center;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* centers vertically */
+}
+
+/* For navbar items */
+.navbaritems {
+  color: #fff;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a.navbaritems {
+  color: #fff;
+}
+#login-dropdown {
+  color: #fff;
+}
+/* #add-stuff-nav{
+  color: #FFF;
+}
+#list-stuff-nav{
+  color: #FFF;
+}
+#admin-stuff-nav{
+  color: #FFF;
+} */
