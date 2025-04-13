@@ -4,11 +4,30 @@ import { Col, Container, Row } from 'react-bootstrap';
 const NotAuthorized = () => (
   <main>
     <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={4} className="text-center">
+      <Row>
+        <Col className="headerGlobalNotes">
           <h2>
-            <p>Not Authorized</p>
+            <p>What Notes Would You Like to Find?</p>
           </h2>
+        </Col>
+      </Row>
+
+      <Row className="tanbox">
+        <Col>
+          <input
+            type="text"
+          />
+        </Col>
+      </Row>
+    </Container>
+    <Container>
+      <Row className="note">
+        <Col>
+          <p>Class: ICS 314</p>
+          <p>Professor: Chad Morita</p>
+          <p>Description: ICS 314 WOD Notes</p>
+          <p>Uploaded by: Annonymous</p>
+          <a href="#">link</a>
         </Col>
       </Row>
     </Container>
