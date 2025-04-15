@@ -22,6 +22,7 @@ const onSubmit = async (data: {
   professor: string;
   description: string;
   documentLink: string;
+  owner: string;
 }) => {
   // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
   await addNote(data);
