@@ -11,7 +11,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   // for local development
-  url      = env("POSTGRES_URL")
+  url      = env("DATABASE_URL")
   // for Vercel
   // url       = env("POSTGRES_PRISMA_URL")
   // directUrl = env("POSTGRES_URL_NON_POOLING")
@@ -45,12 +45,14 @@ model Stuff {
 }
 
 model Note {
-  email         String; @default(anonymous)
-  title:        String;
-  department:   String;
-  class:        String;
-  semester:     String;
-  professor:    String;
-  description:  String;
-  documentLink: String
+  id            Int    @id @default(autoincrement())
+  email         String @default("anonymous")
+  title         String
+  department    String
+  class         String
+  semester      String
+  professor     String
+  description   String
+  documentLink  String
+  owner         String
 }

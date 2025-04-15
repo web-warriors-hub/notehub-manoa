@@ -9,5 +9,41 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultNotes": [
+    {
+      "email": "john@foo.com",
+      "title": "NOTE 1",
+      "department": "ICS",
+      "class": "ICS 314",
+      "semester": "Spring 2026",
+      "professor": "Chad Morita",
+      "description": "Note description",
+      "documentLink": "https:",
+      "owner": "john@foo.com"
+    },
+    {
+      "email": "john@foo.com",
+      "title": "NOTE 2",
+      "department": "ICS",
+      "class": "ICS 314",
+      "semester": "Spring 2026",
+      "professor": "Chad Morita",
+      "description": "Note description",
+      "documentLink": "https:",
+      "owner": "john@foo.com"
+    },
+    {
+      "email": "john@foo.com",
+      "title": "NOTE 3",
+      "department": "ICS",
+      "class": "ICS 314",
+      "semester": "Spring 2026",
+      "professor": "Chad Morita",
+      "description": "Note description",
+      "documentLink": "https:",
+      "owner": "john@foo.com"
+    }
   ]
 }

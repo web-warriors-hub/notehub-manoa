@@ -1,4 +1,4 @@
-import { PrismaClient, Role, Condition } from '@prisma/client';
+import { PrismaClient, Role } from '@prisma/client';
 import { hash } from 'bcrypt';
 import * as config from '../config/settings.development.json';
 
@@ -35,6 +35,7 @@ async function main() {
         professor: note.professor,
         description: note.description,
         documentLink: note.documentLink,
+        owner: note.owner,
       },
     });
   });
