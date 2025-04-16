@@ -1,18 +1,118 @@
-html,
 body {
   --bs-light-rgb: 236, 236, 236;
   box-sizing: border-box;
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color: #EEE7DF;
 }
-
 .wrapper {
+  box-sizing: border-box;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  box-sizing: border-box;
+}
+
+.navbar {
+  background: #024731;
+  height: 114px;
+  flex-shrink: 0;
+}
+
+/* For navbar items */
+.logobar {
+  width: 280px;
+  height: 80px;
+  flex-shrink: 0;
+  background: #f5bd89;
+  color: #090909;
+
+  text-align: center;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* centers vertically */
+}
+
+/* For navbar items */
+.navbaritems {
+  color: #fff;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a.navbaritems {
+  color: #fff;
+}
+#login-dropdown {
+  color: #fff;
+}
+/* #add-stuff-nav{
+  color: #FFF;
+}
+#list-stuff-nav{
+  color: #FFF;
+}
+#admin-stuff-nav{
+  color: #FFF;
+} */
+
+.headerGlobalNotes{
+  color: #024731;
+
+font-family: Inter;
+font-size: 48px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+justify-content: center;
+align-items: center;
+}
+
+.tanbox{
+  color: #EAC3A0;
+  width: 1198px;
+  height: 70px;
+}
+
+.note{
+  background: #D9D9D9;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+max-width: 50%;
+padding: 40px;
+border-radius: 10px;
+color: #000;
+margin: 20px;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.filterbox{
+  color: #FFF3E2;
+}
+
+.dropbox{
+  background: #FFF3E2;
+  color: #024731
+}
+
+.viewnotefont{
+  font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 
 .main-content {
