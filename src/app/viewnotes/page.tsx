@@ -1,7 +1,6 @@
 'use client'
 
 import { Col, Container, Row, Dropdown, ListGroup } from 'react-bootstrap';
-import { BoxArrowRight } from 'react-bootstrap-icons';
 import { useState } from 'react';
 
 /** Render a Not Authorized page if the user enters a URL that they don't have authorization for. */
@@ -77,7 +76,7 @@ const Viewnotes = () => {
               className="form-control mb-2"
               rows={4}
               placeholder="Write your comment here..."
-            ></textarea>
+            > </textarea>
             <div className="d-flex gap-2">
               <button className="btn btn-primary" type="submit">Submit</button>
               <button className="btn btn-secondary" type="reset">Reset</button>
