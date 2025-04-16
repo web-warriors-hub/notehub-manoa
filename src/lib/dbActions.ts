@@ -186,19 +186,3 @@ export async function editContact(contact: Contact) {
   // After updating, redirect to the list page
   redirect('/list');
 }
-
-export async function addNote(note: {
-  note: string;
-  contactId: number; // The ID of the contact this note is associated with
-  owner: string;
-}) {
-  await prisma.note.create({
-    data: {
-      note: note.note,
-      contactId: note.contactId, // Associate with the contact
-      owner: note.owner,
-      createdAt: new Date(), // The email of the user who owns this note
-    },
-  });
-  redirect('/list'); // After adding, redirect to the list page
-}
