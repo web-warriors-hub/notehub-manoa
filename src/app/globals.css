@@ -107,3 +107,11 @@ line-height: normal;
   background: #FFF3E2;
   color: #024731
 }
+
+.viewnotefont{
+  font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}

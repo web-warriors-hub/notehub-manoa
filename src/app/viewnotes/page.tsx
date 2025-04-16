@@ -1,20 +1,22 @@
-'use client'
+/* eslint-disable react/button-has-type */
 
-import { Col, Container, Row, Dropdown, ListGroup } from 'react-bootstrap';
+'use client';
+
+import { Col, Container, Row, Dropdown } from 'react-bootstrap';
 import { useState } from 'react';
 
 /** Render a Not Authorized page if the user enters a URL that they don't have authorization for. */
 const Viewnotes = () => {
   const [textInput, setTextInput] = useState('');
 
-  const handleSelect = (filterValue) => {
+  const handleSelect = (filterValue: string) => {
     const newText = textInput ? `${textInput}, ${filterValue}` : filterValue;
     setTextInput(newText);
   };
 
   return (
     <main>
-      <Container className="py-3">
+      <Container className="py-3 viewnotefont">
         <Row>
           <Col className="headerGlobalNotes">
             <h2>
@@ -51,8 +53,8 @@ const Viewnotes = () => {
                   'Math',
                   'Environmental Science',
                   'History',
-                ].map((item, index) => (
-                  <Dropdown.Item key={index} onClick={() => handleSelect(item)}>
+                ].map((item) => (
+                  <Dropdown.Item onClick={() => handleSelect(item)}>
                     {item}
                   </Dropdown.Item>
                 ))}
@@ -62,21 +64,21 @@ const Viewnotes = () => {
         </Row>
       </Container>
       {/* mockup, will delete later */}
-      <Container>
+      <Container className="viewnotefont">
         <Row className="note">
           <Col>
             <p>Class: ICS 314</p>
             <p>Professor: Chad Morita</p>
             <p>Description: ICS 314 WOD Notes</p>
             <p>Uploaded by: Annonymous</p>
-            <a href="#">link</a>
+            <a href="/">link</a>
             <p> </p>
             <h5>Leave a Comment:</h5>
             <textarea
               className="form-control mb-2"
               rows={4}
               placeholder="Write your comment here..."
-            > </textarea>
+            />
             <div className="d-flex gap-2">
               <button className="btn btn-primary" type="submit">Submit</button>
               <button className="btn btn-secondary" type="reset">Reset</button>
@@ -89,14 +91,14 @@ const Viewnotes = () => {
             <p>Professor: Chad Morita</p>
             <p>Description: ICS 314 WOD Notes</p>
             <p>Uploaded by: Annonymous</p>
-            <a href="#">link</a>
+            <a href="/">link</a>
             <p> </p>
             <h5>Leave a Comment:</h5>
             <textarea
               className="form-control mb-2"
               rows={4}
               placeholder="Write your comment here..."
-            ></textarea>
+            />
             <div className="d-flex gap-2">
               <button className="btn btn-primary" type="submit">Submit</button>
               <button className="btn btn-secondary" type="reset">Reset</button>
