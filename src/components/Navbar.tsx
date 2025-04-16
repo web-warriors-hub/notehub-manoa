@@ -23,9 +23,9 @@ const NavBar: React.FC = () => {
           <Nav.Link
             id="all-notes-nav"
             className="navbaritems"
-            href="/notes"
-            key="notes"
-            active={pathName === '/notes'}
+            href="/viewnotes"
+            key="viewnotes"
+            active={pathName === '/viewnotes'}
           >
             View Notes
           </Nav.Link>
@@ -41,11 +41,11 @@ const NavBar: React.FC = () => {
                     Upload Notes
                   </Nav.Link>,
                   <Nav.Link
-                    id="list-stuff-nav"
+                    id="mynotes-stuff-nav"
                     className="navbaritems"
-                    href="/list"
-                    key="list"
-                    active={pathName === '/list'}
+                    href="/mynotes"
+                    key="mynotes"
+                    active={pathName === '/mynotes'}
                   >
                     Your Notes
                   </Nav.Link>,
