@@ -72,7 +72,7 @@ const Viewnotes = () => {
             <p>Description: ICS 314 WOD Notes</p>
             <p>Uploaded by: Annonymous</p>
             <a href="/">link</a>
-            <p></p>
+            <p />
             <button className="btn btn-primary" type="submit">Leave a Comment</button>
           </Col>
         </Row>
@@ -83,7 +83,7 @@ const Viewnotes = () => {
             <p>Description: ICS 314 WOD Notes</p>
             <p>Uploaded by: Annonymous</p>
             <a href="/">link</a>
-            <p></p>
+            <p />
             <button className="btn btn-primary" type="submit">Leave a Comment</button>
           </Col>
         </Row>
