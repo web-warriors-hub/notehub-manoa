@@ -11,12 +11,12 @@ const AddCommentForm = () => {
     {
       id: '1',
       owner: 'alice@example.com',
-      note: 'Wait, hold on—was this supposed to make sense? Because I thought I was following...',
+      note: 'Wait, how did you get the solution for part b?',
     },
     {
       id: '2',
       owner: 'bob@example.com',
-      note: 'I think we’re still on track... maybe?',
+      note: 'I think your solution is wrong. Here is how I think about it...',
     },
   ];
 
@@ -24,7 +24,7 @@ const AddCommentForm = () => {
     <div className="p-4" style={{ maxWidth: '800px', margin: '0 auto' }}>
       <Card className="mb-4">
         <Card.Header className="bg-warning text-center text-dark">
-          <h4>What does software engineering even mean ...</h4>
+          <h4>Upload your own note</h4>
         </Card.Header>
         <Card.Body className="text-center">
           <Button variant="warning" size="lg">
