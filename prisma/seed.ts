@@ -8,7 +8,10 @@ async function main() {
   console.log('Seeding the database');
   const password = await hash('changeme', 10);
   config.defaultAccounts.forEach(async (account) => {
-    const role = account.role as Role || Role.USER;
+    let role: Role = 'USER';
+    if (account.role === 'ADMIN') {
+      role = 'ADMIN';
+    }
     console.log(`  Creating user: ${account.email} with role: ${role}`);
     await prisma.user.upsert({
       where: { email: account.email },
@@ -21,13 +24,14 @@ async function main() {
     });
     // console.log(`  Created user: ${user.email} with role: ${user.role}`);
   });
+
   config.defaultNotes.forEach(async (note, index) => {
     console.log('Adding Note');
     await prisma.note.upsert({
       where: { id: index },
+
       update: {},
       create: {
-        email: note.email,
         title: note.title,
         department: note.department,
         class: note.class,
@@ -36,6 +40,22 @@ async function main() {
         description: note.description,
         documentLink: note.documentLink,
         owner: note.owner,
+      },
+    });
+  });
+
+  config.defaultContacts.forEach(async (contact, index) => {
+    console.log(`  Adding contact: ${contact.firstName} ${contact.lastName} `);
+    await prisma.contact.upsert({
+      where: { id: index },
+      update: {},
+      create: {
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        address: contact.address,
+        image: contact.image,
+        description: contact.description,
+        owner: contact.owner,
       },
     });
   });

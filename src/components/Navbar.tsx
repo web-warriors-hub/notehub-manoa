@@ -49,6 +49,9 @@ const NavBar: React.FC = () => {
                   >
                     Your Notes
                   </Nav.Link>,
+                  <Nav.Link id="note-stuff-nav" href="/note" key="note" active={pathName === '/note'}>
+                  Upload note
+                  </Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (

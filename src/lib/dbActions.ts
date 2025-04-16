@@ -149,3 +149,56 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
+
+export async function addContact(contact: {
+  firstName: string;
+  lastName: string;
+  address: string;
+  image: string;
+  description: string;
+  owner: string;
+}) {
+  await prisma.contact.create({
+    data: {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      image: contact.image, // Ensure this is a valid URL or path to an image
+      address: contact.address,
+      description: contact.description, // Optional, can be empty
+      owner: contact.owner, // The email of the user who owns this contact
+    },
+  });
+  redirect('/list'); // After adding, redirect to the list page
+}
+
+export async function editContact(contact: Contact) {
+  await prisma.contact.update({
+    where: { id: contact.id },
+    data: {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      image: contact.image, // Ensure this is a valid URL or path to an image
+      address: contact.address,
+      description: contact.description, // Optional, can be empty
+      owner: contact.owner, // The email of the user who owns this contact
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
+}
+
+export async function addNote(note: {
+  note: string;
+  contactId: number; // The ID of the contact this note is associated with
+  owner: string;
+}) {
+  await prisma.note.create({
+    data: {
+      note: note.note,
+      contactId: note.contactId, // Associate with the contact
+      owner: note.owner,
+      createdAt: new Date(), // The email of the user who owns this note
+    },
+  });
+  redirect('/list'); // After adding, redirect to the list page
+}

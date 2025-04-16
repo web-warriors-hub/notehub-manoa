@@ -39,3 +39,22 @@ export const EditNoteSchema = Yup.object({
   documentLink: Yup.string().required(),
   owner: Yup.string().required(),
 });
+
+export const AddContactSchema = Yup.object({
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  address: Yup.string().required('Address is required'),
+  image: Yup.string().required('Image URL is required'),
+  description: Yup.string().required('Description is required'),
+  owner: Yup.string().required(), // Ensure the owner is provided, typically the current user
+});
+
+export const EditContactSchema = Yup.object({
+  id: Yup.number().required(),
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  address: Yup.string().required('Address is required'),
+  image: Yup.string().required('Image URL is required'),
+  description: Yup.string().required('Description is required'),
+  owner: Yup.string().required('Owner is required'), // Ensure the owner is provided, typically the current user
+});
