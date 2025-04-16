@@ -72,17 +72,8 @@ const Viewnotes = () => {
             <p>Description: ICS 314 WOD Notes</p>
             <p>Uploaded by: Annonymous</p>
             <a href="/">link</a>
-            <p> </p>
-            <h5>Leave a Comment:</h5>
-            <textarea
-              className="form-control mb-2"
-              rows={4}
-              placeholder="Write your comment here..."
-            />
-            <div className="d-flex gap-2">
-              <button className="btn btn-primary" type="submit">Submit</button>
-              <button className="btn btn-secondary" type="reset">Reset</button>
-            </div>
+            <p></p>
+            <button className="btn btn-primary" type="submit">Leave a Comment</button>
           </Col>
         </Row>
         <Row className="note">
@@ -92,17 +83,8 @@ const Viewnotes = () => {
             <p>Description: ICS 314 WOD Notes</p>
             <p>Uploaded by: Annonymous</p>
             <a href="/">link</a>
-            <p> </p>
-            <h5>Leave a Comment:</h5>
-            <textarea
-              className="form-control mb-2"
-              rows={4}
-              placeholder="Write your comment here..."
-            />
-            <div className="d-flex gap-2">
-              <button className="btn btn-primary" type="submit">Submit</button>
-              <button className="btn btn-secondary" type="reset">Reset</button>
-            </div>
+            <p></p>
+            <button className="btn btn-primary" type="submit">Leave a Comment</button>
           </Col>
         </Row>
       </Container>
