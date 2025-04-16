@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer';
 import NavBar from '@/components/Navbar';
 import Providers from './providers';
+import LandingBackground from '../components/LandingPage/LandingBackground';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,16 +20,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const classString = `${inter.className} wrapper`;
+  const classString = `${inter.className}`;
+
   return (
     <html lang="en">
       <body className={classString}>
         <Providers>
-          <NavBar />
-          {children}
-          <Footer />
+            <NavBar />
+              <LandingBackground />
+              {children}
+            <Footer />
         </Providers>
       </body>
     </html>
   );
 }
+

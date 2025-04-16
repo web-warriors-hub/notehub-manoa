@@ -112,4 +112,4 @@ const AddNoteForm: React.FC = () => {
   );
 };
 
-export default AddStuffForm;
+export default AddNoteForm;
