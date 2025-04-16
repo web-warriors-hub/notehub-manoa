@@ -27,7 +27,6 @@ export default function RootLayout({
       <body className={classString}>
         <Providers>
             <NavBar />
-              <LandingBackground />
               {children}
             <Footer />
         </Providers>
