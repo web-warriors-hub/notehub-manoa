@@ -5,12 +5,68 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #EEE7DF;
 }
+
 .wrapper {
-  box-sizing: border-box;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.custom-footer {
+  background-color: #024731;
+  color: white;
+}
+
+.main-note-button {
+  background: #5AA68E;
+  border-radius: 20px;
+  color: white;
+  font-size: 36px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.main-note-button:hover {
+  background-color: #4b907a;
+}
+
+.landing-background {
+  background-color: #EEE7DF;
+  min-height: 100vh; 
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-image {
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .navbar {
