@@ -16,13 +16,13 @@ const LandingBackground: React.FC = () => (
       />
 
       <div className="landing-buttons">
-        <Link href="/search" passHref legacyBehavior>
+        <Link href="/viewnotes" passHref legacyBehavior>
           <a className="main-note-button">
             I want to search for notes!
           </a>
         </Link>
 
-        <Link href="/upload" passHref legacyBehavior>
+        <Link href="/note" passHref legacyBehavior>
           <a className="main-note-button">
             I want to upload notes!
           </a>
