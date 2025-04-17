@@ -44,30 +44,29 @@ model Stuff {
   owner     String
 }
 
-
 model Note {
-  id            Int    @id @default(autoincrement())
-  email         String @default("anonymous")
-  title         String
-  department    String
-  class         String
-  semester      String
-  professor     String
-  description   String
-  documentLink  String
-  owner         String
+  id           Int    @id @default(autoincrement())
+  email        String @default("anonymous")
+  title        String
+  department   String
+  class        String
+  semester     String
+  professor    String
+  description  String
+  documentLink String
+  owner        String
 
+  Contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId Int?
 }
 
-
 model Contact {
-    id          Int    @id @default(autoincrement())
-    firstName   String
-    lastName    String
-    address     String
-    image       String
-    description String
-    notes       Note[]
-    owner       String
-
+  id          Int    @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  address     String
+  image       String
+  description String
+  notes       Note[] 
+  owner       String
 }

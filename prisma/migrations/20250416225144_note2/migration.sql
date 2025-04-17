@@ -1,13 +1,16 @@
--- AlterTable
-ALTER TABLE "Stuff" ALTER COLUMN "condition" SET DEFAULT 'good';
-
 -- CreateTable
 CREATE TABLE "Note" (
     "id" SERIAL NOT NULL,
-    "contactId" INTEGER NOT NULL,
-    "note" TEXT NOT NULL,
+    "email" TEXT NOT NULL DEFAULT 'anonymous',
+    "title" TEXT NOT NULL,
+    "department" TEXT NOT NULL,
+    "class" TEXT NOT NULL,
+    "semester" TEXT NOT NULL,
+    "professor" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "documentLink" TEXT NOT NULL,
     "owner" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "contactId" INTEGER,
 
     CONSTRAINT "Note_pkey" PRIMARY KEY ("id")
 );
@@ -26,4 +29,4 @@ CREATE TABLE "Contact" (
 );
 
 -- AddForeignKey
-ALTER TABLE "Note" ADD CONSTRAINT "Note_contactId_fkey" FOREIGN KEY ("contactId") REFERENCES "Contact"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Note" ADD CONSTRAINT "Note_contactId_fkey" FOREIGN KEY ("contactId") REFERENCES "Contact"("id") ON DELETE SET NULL ON UPDATE CASCADE;
