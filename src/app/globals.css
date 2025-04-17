@@ -91,8 +91,18 @@ a {
   color: #090909;
 
   text-align: center;
+<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
+=======
+<<<<<<< HEAD
+  font-family: Inter;
+  font-size:50px;
+=======
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+>>>>>>> c34ec2c (switching to other branch, need to save changes)
+>>>>>>> 248dcff (switching to other branch, need to save changes)
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -119,18 +129,31 @@ a {
 /* For navbar items */
 .navbaritems {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #FFF3E2;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: light;
   font-weight: 500;
 =======
+=======
+>>>>>>> 248dcff (switching to other branch, need to save changes)
   color: #fff;
   font-family: Inter;
   font-size: 23px;
   font-style: normal;
   font-weight: 600;
+<<<<<<< HEAD
 >>>>>>> e90a374 (Made navbar small)
+=======
+=======
+  color: #FFF3E2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-style: light;
+  font-weight: 500;
+>>>>>>> c34ec2c (switching to other branch, need to save changes)
+>>>>>>> 248dcff (switching to other branch, need to save changes)
   line-height: normal;
   text-decoration: underline;
 }
