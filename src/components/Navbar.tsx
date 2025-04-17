@@ -16,7 +16,9 @@ const NavBar: React.FC = () => {
   return (
     <Navbar className="navbaritems">
       <Container>
-        <Navbar.Brand className="logobar" href="/">NoteHub-Mānoa</Navbar.Brand>
+      <Navbar.Brand href="/" className="logobar">
+        <img src="/notehub_logo.png" alt="NoteHub Mānoa" className="logobar-img" />
+      </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start navbaritems">

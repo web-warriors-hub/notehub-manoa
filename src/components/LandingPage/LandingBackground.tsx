@@ -15,6 +15,8 @@ const LandingBackground: React.FC = () => (
         className="landing-image"
       />
 
+      <p className="landing-text">What would you like to do today?</p>
+
       <div className="landing-buttons">
         <Link href="/search" passHref legacyBehavior>
           <a className="main-note-button">
