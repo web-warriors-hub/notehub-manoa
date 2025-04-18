@@ -118,11 +118,19 @@ a {
 
 /* For navbar items */
 .navbaritems {
+<<<<<<< HEAD
   color: #FFF3E2;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: light;
   font-weight: 500;
+=======
+  color: #fff;
+  font-family: Inter;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 600;
+>>>>>>> e90a374 (Made navbar small)
   line-height: normal;
   text-decoration: underline;
 }
