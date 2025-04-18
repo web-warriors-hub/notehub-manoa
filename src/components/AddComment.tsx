@@ -24,7 +24,7 @@ const AddCommentForm = () => {
     <div className="p-4" style={{ maxWidth: '800px', margin: '0 auto' }}>
       <Card className="mb-4">
         <Card.Header className="bg-warning text-center text-dark">
-          <h4>Upload your own note</h4>
+          <h4>Here the link to my note</h4>
         </Card.Header>
         <Card.Body className="text-center">
           <Button variant="warning" size="lg">

@@ -1,35 +1,9 @@
 'use server';
 
-import { Stuff, Condition, Note } from '@prisma/client';
+import { Stuff, Note } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
-
-/**
- * Adds a new stuff to the database.
- * @param stuff, an object with the following properties: name, quantity, owner, condition.
- */
-export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
-  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
-  let condition: Condition = 'good';
-  if (stuff.condition === 'poor') {
-    condition = 'poor';
-  } else if (stuff.condition === 'excellent') {
-    condition = 'excellent';
-  } else {
-    condition = 'fair';
-  }
-  await prisma.stuff.create({
-    data: {
-      name: stuff.name,
-      quantity: stuff.quantity,
-      owner: stuff.owner,
-      condition,
-    },
-  });
-  // After adding, redirect to the list page
-  redirect('/list');
-}
 
 /**
  * Adds a new note to the database.
@@ -45,7 +19,7 @@ export async function addNote(note: {
   professor: string;
   description: string;
   documentLink: string;
-  owner: string
+  owner: string;
 }) {
   await prisma.note.create({
     data: {
@@ -61,7 +35,7 @@ export async function addNote(note: {
     },
   });
   // After adding, redirect to the list page
-  redirect('/list');
+  redirect('/yourNote');
 }
 
 /**
@@ -171,18 +145,18 @@ export async function addContact(contact: {
   redirect('/list'); // After adding, redirect to the list page
 }
 
-export async function editContact(contact: Contact) {
-  await prisma.contact.update({
-    where: { id: contact.id },
-    data: {
-      firstName: contact.firstName,
-      lastName: contact.lastName,
-      image: contact.image, // Ensure this is a valid URL or path to an image
-      address: contact.address,
-      description: contact.description, // Optional, can be empty
-      owner: contact.owner, // The email of the user who owns this contact
-    },
-  });
-  // After updating, redirect to the list page
-  redirect('/list');
-}
+// export async function editContact(contact: Contact) {
+//   await prisma.contact.update({
+//     where: { id: contact.id },
+//     data: {
+//       firstName: contact.firstName,
+//       lastName: contact.lastName,
+//       image: contact.image, // Ensure this is a valid URL or path to an image
+//       address: contact.address,
+//       description: contact.description, // Optional, can be empty
+//       owner: contact.owner, // The email of the user who owns this contact
+//     },
+//   });
+//   // After updating, redirect to the list page
+//   redirect('/list');
+// }
