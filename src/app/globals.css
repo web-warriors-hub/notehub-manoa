@@ -79,10 +79,11 @@ a {
   flex-shrink: 0;
   background: #f5bd89;
   color: #090909;
+  border-radius: 10px;
 
   text-align: center;
   font-family: Inter;
-  font-size: 32px;
+  font-size:50px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
