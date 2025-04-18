@@ -55,18 +55,6 @@ model Note {
   description  String
   documentLink String
   owner        String
-
-  Contact   Contact? @relation(fields: [contactId], references: [id])
-  contactId Int?
+ 
 }
 
-model Contact {
-  id          Int    @id @default(autoincrement())
-  firstName   String
-  lastName    String
-  address     String
-  image       String
-  description String
-  notes       Note[] 
-  owner       String
-}
