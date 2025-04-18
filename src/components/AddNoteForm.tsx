@@ -12,7 +12,8 @@ import { addNote } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
 // eslint-disable-next-line import/extensions
 import { AddNoteSchema } from '@/lib/validationSchemas';
-
+// import { Note } from '@prisma/client';
+// import {Contact} from '@prisma/client';
 const onSubmit = async (data: {
   email: string;
   title: string;
@@ -30,7 +31,7 @@ const onSubmit = async (data: {
     timer: 2000,
   });
 };
-
+// const AddNoteForm = ({ contact }: { contact: Contact }) =>
 const AddNoteForm: React.FC = () => {
   const { data: session, status } = useSession();
   // console.log('AddStuffForm', status, session);
