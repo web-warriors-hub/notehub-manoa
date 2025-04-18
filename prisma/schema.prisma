@@ -55,6 +55,6 @@ model Note {
   description  String
   documentLink String
   owner        String
- 
+  createdAt    DateTime @default(now())
 }
 
