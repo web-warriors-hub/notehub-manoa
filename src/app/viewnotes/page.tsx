@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -26,7 +28,7 @@ const Viewnotes = () => {
   // Filter based on search input
   const filteredNotes = textInput.trim() === ''
     ? notes
-    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description}`
+    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
       .toLowerCase()
       .includes(textInput.toLowerCase()));
 
