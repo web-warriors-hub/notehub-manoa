@@ -3,16 +3,41 @@
 'use client';
 
 import { Col, Container, Row, Dropdown } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import NoteCard from '@/components/NoteCard';
+import { Note } from '@prisma/client';
 
-/** Render a Not Authorized page if the user enters a URL that they don't have authorization for. */
 const Viewnotes = () => {
   const [textInput, setTextInput] = useState('');
+  const [notes, setNotes] = useState<Note[]>([]);
 
+  // Fetch notes from API on mount
+  useEffect(() => {
+    const fetchNotes = async () => {
+      try {
+        const res = await fetch('/api/notes');
+        const data = await res.json();
+        setNotes(data);
+      } catch (err) {
+        console.error('Failed to fetch notes', err);
+      }
+    };
+    fetchNotes();
+  }, []);
+
+  // Handle dropdown filter selection
   const handleSelect = (filterValue: string) => {
     const newText = textInput ? `${textInput}, ${filterValue}` : filterValue;
     setTextInput(newText);
   };
+
+  // Filter notes based on textInput
+  // Only filter if textInput is not empty
+  const filteredNotes = textInput.trim() === ''
+    ? notes
+    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description}`
+      .toLowerCase()
+      .includes(textInput.toLowerCase()));
 
   return (
     <main>
@@ -54,7 +79,7 @@ const Viewnotes = () => {
                   'Environmental Science',
                   'History',
                 ].map((item) => (
-                  <Dropdown.Item onClick={() => handleSelect(item)}>
+                  <Dropdown.Item key={item} onClick={() => handleSelect(item)}>
                     {item}
                   </Dropdown.Item>
                 ))}
@@ -63,29 +88,20 @@ const Viewnotes = () => {
           </Col>
         </Row>
       </Container>
-      {/* mockup, will delete later */}
-      <Container className="viewnotefont">
-        <Row className="note">
-          <Col>
-            <p>Class: ICS 314</p>
-            <p>Professor: Chad Morita</p>
-            <p>Description: ICS 314 WOD Notes</p>
-            <p>Uploaded by: Annonymous</p>
-            <a href="/">link</a>
-            <p />
-            <button className="btn btn-primary" type="submit">Leave a Comment</button>
-          </Col>
-        </Row>
-        <Row className="note">
-          <Col>
-            <p>Class: ICS 314</p>
-            <p>Professor: Chad Morita</p>
-            <p>Description: ICS 314 WOD Notes</p>
-            <p>Uploaded by: Annonymous</p>
-            <a href="/">link</a>
-            <p />
-            <button className="btn btn-primary" type="submit">Leave a Comment</button>
-          </Col>
+
+      <Container className="viewnotefont mt-4">
+        <Row>
+          {filteredNotes.length > 0 ? (
+            filteredNotes.map((note) => (
+              <Col key={note.id} md={6} lg={4} className="mb-4">
+                <NoteCard note={note} />
+              </Col>
+            ))
+          ) : (
+            <Col>
+              <p>No notes found.</p>
+            </Col>
+          )}
         </Row>
       </Container>
     </main>
