@@ -85,7 +85,7 @@ const Viewnotes = () => {
       <Container className="viewnotefont mt-4">
         {filteredNotes.length > 0 ? (
           filteredNotes.map((note) => (
-            <Row key={note.id} md={6} lg={4} className="mb-4">
+            <Row key={note.id} md={12} className="mb-4">
               <NoteCard note={note} />
             </Row>
           ))

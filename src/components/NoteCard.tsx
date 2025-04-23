@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Card } from 'react-bootstrap';
 
 const NoteCard = ({ note }: { note: Note }) => (
-  <Card className="h-100">
+  <Card className="h-100 w-100">
     <Card.Header>
       <Card.Title>{note.title}</Card.Title>
       <Card.Subtitle>
