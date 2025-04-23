@@ -1,9 +1,7 @@
-/* eslint-disable react/button-has-type */
-
 'use client';
 
-import { Col, Container, Row, Dropdown } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { Col, Container, Row, Dropdown } from 'react-bootstrap';
 import NoteCard from '@/components/NoteCard';
 import { Note } from '@prisma/client';
 
@@ -11,11 +9,11 @@ const Viewnotes = () => {
   const [textInput, setTextInput] = useState('');
   const [notes, setNotes] = useState<Note[]>([]);
 
-  // Fetch notes from API on mount
+  // Fetch only default notes from API on mount
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await fetch('/api/notes');
+        const res = await fetch('/api/notes'); // this should already be filtered for "default" notes on the backend
         const data = await res.json();
         setNotes(data);
       } catch (err) {
@@ -25,28 +23,24 @@ const Viewnotes = () => {
     fetchNotes();
   }, []);
 
-  // Handle dropdown filter selection
-  const handleSelect = (filterValue: string) => {
-    const newText = textInput ? `${textInput}, ${filterValue}` : filterValue;
-    setTextInput(newText);
-  };
-
-  // Filter notes based on textInput
-  // Only filter if textInput is not empty
+  // Filter based on search input
   const filteredNotes = textInput.trim() === ''
     ? notes
     : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description}`
       .toLowerCase()
       .includes(textInput.toLowerCase()));
 
+  const handleSelect = (filterValue: string) => {
+    const newText = textInput ? `${textInput}, ${filterValue}` : filterValue;
+    setTextInput(newText);
+  };
+
   return (
     <main>
       <Container className="py-3 viewnotefont">
         <Row>
           <Col className="headerGlobalNotes">
-            <h2>
-              <p>What Notes Would You Like to Find?</p>
-            </h2>
+            <h2><p>What Notes Would You Like to Find?</p></h2>
           </Col>
         </Row>
 
@@ -64,7 +58,6 @@ const Viewnotes = () => {
               <Dropdown.Toggle variant="secondary" id="dropdown-basic" className="dropbox">
                 Filter
               </Dropdown.Toggle>
-
               <Dropdown.Menu className="filterbox">
                 <p className="px-3 mb-1 fw-bold">Sort by...</p>
                 {[
