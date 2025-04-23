@@ -83,7 +83,7 @@ a {
 }
 
 /* For navbar items */
-/* .logobar {
+/*.logobar {
   width: 280px;
   height: 80px;
   flex-shrink: 0;
@@ -92,13 +92,8 @@ a {
   border-radius: 10px;
 
   text-align: center;
-<<<<<<< HEAD
-  font-family: Inter;
-  font-size:50px;
-=======
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
->>>>>>> c34ec2c (switching to other branch, need to save changes)
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -124,19 +119,11 @@ a {
 
 /* For navbar items */
 .navbaritems {
-<<<<<<< HEAD
-  color: #fff;
-  font-family: Inter;
-  font-size: 23px;
-  font-style: normal;
-  font-weight: 600;
-=======
   color: #FFF3E2;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-style: light;
   font-weight: 500;
->>>>>>> c34ec2c (switching to other branch, need to save changes)
   line-height: normal;
   text-decoration: underline;
 }

@@ -1,4 +1,5 @@
 // app/api/notes/route.ts
+/* eslint-disable import/prefer-default-export */
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
