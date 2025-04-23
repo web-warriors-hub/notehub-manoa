@@ -124,26 +124,26 @@ export async function changePassword(credentials: { email: string; password: str
   });
 }
 
-export async function addContact(contact: {
-  firstName: string;
-  lastName: string;
-  address: string;
-  image: string;
-  description: string;
-  owner: string;
-}) {
-  await prisma.contact.create({
-    data: {
-      firstName: contact.firstName,
-      lastName: contact.lastName,
-      image: contact.image, // Ensure this is a valid URL or path to an image
-      address: contact.address,
-      description: contact.description, // Optional, can be empty
-      owner: contact.owner, // The email of the user who owns this contact
-    },
-  });
-  redirect('/list'); // After adding, redirect to the list page
-}
+// export async function addContact(contact: {
+//   firstName: string;
+//   lastName: string;
+//   address: string;
+//   image: string;
+//   description: string;
+//   owner: string;
+// }) {
+//   await prisma.contact.create({
+//     data: {
+//       firstName: contact.firstName,
+//       lastName: contact.lastName,
+//       image: contact.image, // Ensure this is a valid URL or path to an image
+//       address: contact.address,
+//       description: contact.description, // Optional, can be empty
+//       owner: contact.owner, // The email of the user who owns this contact
+//     },
+//   });
+//   redirect('/list'); // After adding, redirect to the list page
+// }
 
 // export async function editContact(contact: Contact) {
 //   await prisma.contact.update({
