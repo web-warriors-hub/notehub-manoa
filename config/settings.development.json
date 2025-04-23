@@ -16,11 +16,11 @@
       "email": "john@foo.com",
       "title": "NOTE 1",
       "department": "ICS",
-      "class": "ICS 314",
+      "class": "ICS 314333",
       "semester": "Spring 2026",
-      "professor": "Chad Morita",
-      "description": "Note description",
-      "documentLink": "https:",
+      "professor": "Chad Morasdasdita",
+      "description": "Note desc dsfription",
+      "documentLink": "/",
       "owner": "john@foo.com"
     },
     {
@@ -31,7 +31,7 @@
       "semester": "Spring 2026",
       "professor": "Chad Morita",
       "description": "Note description",
-      "documentLink": "https:",
+      "documentLink": "/",
       "owner": "john@foo.com"
     },
     {
@@ -42,7 +42,7 @@
       "semester": "Spring 2026",
       "professor": "Chad Morita",
       "description": "Note description",
-      "documentLink": "https:",
+      "documentLink": "/",
       "owner": "john@foo.com"
     }
   ]

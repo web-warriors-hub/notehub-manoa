@@ -13,7 +13,7 @@ const Viewnotes = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await fetch('/api/notes'); // this should already be filtered for "default" notes on the backend
+        const res = await fetch('/api/notes');
         const data = await res.json();
         setNotes(data);
       } catch (err) {
@@ -83,19 +83,17 @@ const Viewnotes = () => {
       </Container>
 
       <Container className="viewnotefont mt-4">
-        <Row>
-          {filteredNotes.length > 0 ? (
-            filteredNotes.map((note) => (
-              <Col key={note.id} md={6} lg={4} className="mb-4">
-                <NoteCard note={note} />
-              </Col>
-            ))
-          ) : (
-            <Col>
-              <p>No notes found.</p>
-            </Col>
-          )}
-        </Row>
+        {filteredNotes.length > 0 ? (
+          filteredNotes.map((note) => (
+            <Row key={note.id} md={6} lg={4} className="mb-4">
+              <NoteCard note={note} />
+            </Row>
+          ))
+        ) : (
+          <Row>
+            <p>No notes found.</p>
+          </Row>
+        )}
       </Container>
     </main>
   );

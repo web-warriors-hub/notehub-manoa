@@ -2,10 +2,7 @@
 
 import { Note } from '@prisma/client'; // Ensure you have the correct path to your prisma client
 import Link from 'next/link';
-import { Card, Image } from 'react-bootstrap';
-import ListGroup from 'react-bootstrap/ListGroup';
-import NoteItem from '@/components/NoteItem';
-import AddNoteForm from './AddNoteForm';
+import { Card } from 'react-bootstrap';
 
 const NoteCard = ({ note }: { note: Note }) => (
   <Card className="h-100">
