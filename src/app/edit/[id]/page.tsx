@@ -1,33 +1,33 @@
-// import { getServerSession } from 'next-auth';
-// import { notFound } from 'next/navigation';
-// import { Stuff } from '@prisma/client';
-// import authOptions from '@/lib/authOptions';
-// import { loggedInProtectedPage } from '@/lib/page-protection';
-// import { prisma } from '@/lib/prisma';
-// import EditStuffForm from '@/components/EditStuffForm';
+import { getServerSession } from 'next-auth';
+import { notFound } from 'next/navigation';
+import { Note } from '@prisma/client';
+import authOptions from '@/lib/authOptions';
+import { loggedInProtectedPage } from '@/lib/page-protection';
+import { prisma } from '@/lib/prisma';
+import EditNoteForm from '@/components/EditNoteForm';
 
-// export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {
-//   // Protect the page, only logged in users can access it.
-//   const session = await getServerSession(authOptions);
-//   loggedInProtectedPage(
-//     session as {
-//       user: { email: string; id: string; randomKey: string };
-//       // eslint-disable-next-line @typescript-eslint/comma-dangle
-//     } | null,
-//   );
-//   const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-//   // console.log(id);
-//   const stuff: Stuff | null = await prisma.stuff.findUnique({
-//     where: { id },
-//   });
-//   // console.log(stuff);
-//   if (!stuff) {
-//     return notFound();
-//   }
+export default async function EditNotePage({ params }: { params: { id: string | string[] } }) {
+  // Protect the page, only logged in users can access it.
+  const session = await getServerSession(authOptions);
+  loggedInProtectedPage(
+    session as {
+      user: { email: string; id: string; randomKey: string };
+      // eslint-disable-next-line @typescript-eslint/comma-dangle
+    } | null,
+  );
+  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
+  // console.log(id);
+  const note: Note | null = await prisma.note.findUnique({
+    where: { id },
+  });
+  // console.log(note);
+  if (!note) {
+    return notFound();
+  }
 
-//   return (
-//     <main>
-//       <EditStuffForm stuff={stuff} />
-//     </main>
-//   );
-// }
+  return (
+    <main>
+      <EditNoteForm note={note} />
+    </main>
+  );
+}
