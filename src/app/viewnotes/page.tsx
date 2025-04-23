@@ -1,13 +1,34 @@
-/* eslint-disable react/button-has-type */
-
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Col, Container, Row, Dropdown } from 'react-bootstrap';
-import { useState } from 'react';
+import NoteCard from '@/components/NoteCard';
+import { Note } from '@prisma/client';
 
-/** Render a Not Authorized page if the user enters a URL that they don't have authorization for. */
 const Viewnotes = () => {
   const [textInput, setTextInput] = useState('');
+  const [notes, setNotes] = useState<Note[]>([]);
+
+  // Fetch only default notes from API on mount
+  useEffect(() => {
+    const fetchNotes = async () => {
+      try {
+        const res = await fetch('/api/notes');
+        const data = await res.json();
+        setNotes(data);
+      } catch (err) {
+        console.error('Failed to fetch notes', err);
+      }
+    };
+    fetchNotes();
+  }, []);
+
+  // Filter based on search input
+  const filteredNotes = textInput.trim() === ''
+    ? notes
+    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description}`
+      .toLowerCase()
+      .includes(textInput.toLowerCase()));
 
   const handleSelect = (filterValue: string) => {
     const newText = textInput ? `${textInput}, ${filterValue}` : filterValue;
@@ -19,9 +40,7 @@ const Viewnotes = () => {
       <Container className="py-3 viewnotefont">
         <Row>
           <Col className="headerGlobalNotes">
-            <h2>
-              <p>What Notes Would You Like to Find?</p>
-            </h2>
+            <h2><p>What Notes Would You Like to Find?</p></h2>
           </Col>
         </Row>
 
@@ -39,7 +58,6 @@ const Viewnotes = () => {
               <Dropdown.Toggle variant="secondary" id="dropdown-basic" className="dropbox">
                 Filter
               </Dropdown.Toggle>
-
               <Dropdown.Menu className="filterbox">
                 <p className="px-3 mb-1 fw-bold">Sort by...</p>
                 {[
@@ -54,7 +72,7 @@ const Viewnotes = () => {
                   'Environmental Science',
                   'History',
                 ].map((item) => (
-                  <Dropdown.Item onClick={() => handleSelect(item)}>
+                  <Dropdown.Item key={item} onClick={() => handleSelect(item)}>
                     {item}
                   </Dropdown.Item>
                 ))}
@@ -63,30 +81,19 @@ const Viewnotes = () => {
           </Col>
         </Row>
       </Container>
-      {/* mockup, will delete later */}
-      <Container className="viewnotefont">
-        <Row className="note">
-          <Col>
-            <p>Class: ICS 314</p>
-            <p>Professor: Chad Morita</p>
-            <p>Description: ICS 314 WOD Notes</p>
-            <p>Uploaded by: Annonymous</p>
-            <a href="/">link</a>
-            <p />
-            <button className="btn btn-primary" type="submit">Leave a Comment</button>
-          </Col>
-        </Row>
-        <Row className="note">
-          <Col>
-            <p>Class: ICS 314</p>
-            <p>Professor: Chad Morita</p>
-            <p>Description: ICS 314 WOD Notes</p>
-            <p>Uploaded by: Annonymous</p>
-            <a href="/">link</a>
-            <p />
-            <button className="btn btn-primary" type="submit">Leave a Comment</button>
-          </Col>
-        </Row>
+
+      <Container className="viewnotefont mt-4">
+        {filteredNotes.length > 0 ? (
+          filteredNotes.map((note) => (
+            <Row key={note.id} md={12} className="mb-4">
+              <NoteCard note={note} />
+            </Row>
+          ))
+        ) : (
+          <Row>
+            <p>No notes found.</p>
+          </Row>
+        )}
       </Container>
     </main>
   );
