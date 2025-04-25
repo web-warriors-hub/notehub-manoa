@@ -1,3 +1,4 @@
+// import { create } from 'domain';
 import * as Yup from 'yup';
 
 export const AddStuffSchema = Yup.object({
@@ -38,6 +39,7 @@ export const EditNoteSchema = Yup.object({
   description: Yup.string().required(),
   documentLink: Yup.string().required(),
   owner: Yup.string().required(),
+  createdAt: Yup.date().required(),
 });
 
 export const AddContactSchema = Yup.object({
