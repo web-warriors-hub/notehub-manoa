@@ -5,7 +5,7 @@
 import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import NoteCard from '@/components/NoteCard';
+import YourNoteCard from '@/components/NoteCard';
 import { Note } from '@prisma/client';
 
 const Yournote = () => {
@@ -28,11 +28,14 @@ const Yournote = () => {
   }, []);
 
   // Filter based on search input
-  const filteredNotes = currentUser.trim() === ''
-    ? notes
-    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
-      .toLowerCase()
-      .includes(currentUser.toLowerCase()));
+  const filteredNotes =
+    currentUser.trim() === ''
+      ? notes
+      : notes.filter((note) =>
+          `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
+            .toLowerCase()
+            .includes(currentUser.toLowerCase()),
+        );
 
   return (
     <main>
@@ -40,6 +43,9 @@ const Yournote = () => {
         <Row>
           <Col className="headerGlobalNotes">
             <h2><p>See Your Notes</p></h2>
+            <h2>
+              <p>See Your Notes</p>
+            </h2>
           </Col>
         </Row>
       </Container>
@@ -48,7 +54,7 @@ const Yournote = () => {
         {filteredNotes.length > 0 ? (
           filteredNotes.map((note) => (
             <Row key={note.id} md={12} className="mb-4">
-              <NoteCard note={note} />
+              <YourNoteCard note={note} />
             </Row>
           ))
         ) : (
