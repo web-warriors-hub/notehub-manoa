@@ -5,7 +5,7 @@
 import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import YourNoteCard from '@/components/NoteCard';
+import YourNoteCard from '@/components/NoteCardYourNote';
 import { Note } from '@prisma/client';
 
 const Yournote = () => {
@@ -28,23 +28,17 @@ const Yournote = () => {
   }, []);
 
   // Filter based on search input
-  const filteredNotes =
-    currentUser.trim() === ''
-      ? notes
-      : notes.filter((note) =>
-          `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
-            .toLowerCase()
-            .includes(currentUser.toLowerCase()),
-        );
+  const filteredNotes = currentUser.trim() === ''
+    ? notes
+    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
+      .toLowerCase()
+      .includes(currentUser.toLowerCase()));
 
   return (
     <main>
       <Container className="py-3 viewnotefont">
         <Row>
           <Col className="headerGlobalNotes">
-            <h2>
-              <p>See Your Notes</p>
-            </h2>
             <h2>
               <p>See Your Notes</p>
             </h2>

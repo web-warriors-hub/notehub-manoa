@@ -4,7 +4,7 @@ import { Note } from '@prisma/client'; // Ensure you have the correct path to yo
 import Link from 'next/link';
 import { Card, Col, Row } from 'react-bootstrap';
 
-const NoteCard = ({ note }: { note: Note }) => (
+const YourNoteCard = ({ note }: { note: Note }) => (
   <Card className="h-100 w-100">
     <Card.Header>
       <Card.Title>{note.title}</Card.Title>
@@ -47,4 +47,4 @@ const NoteCard = ({ note }: { note: Note }) => (
   </Card>
 );
 
-export default NoteCard;
+export default YourNoteCard;
