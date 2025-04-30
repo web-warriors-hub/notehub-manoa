@@ -34,7 +34,7 @@ export async function addNote(note: {
       owner: note.owner,
     },
   });
-  // After adding, redirect to the list page
+  // After adding, redirect to the yourNote page
   redirect('/yourNote');
 }
 
@@ -59,7 +59,7 @@ export async function editNote(note: Note) {
       owner: note.owner,
     },
   });
-  // After updating, redirect to the list page
+  // After updating, redirect to the yourNote page
   redirect('/yourNote');
 }
 
