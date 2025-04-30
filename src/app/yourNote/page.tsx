@@ -4,7 +4,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
-import { Col, Container, Row, Dropdown } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import NoteCard from '@/components/NoteCard';
 import { Note } from '@prisma/client';
 
