@@ -39,6 +39,9 @@ const NoteCard = ({ note }: { note: Note }) => (
             {note.owner}
           </small>
         </Col>
+        <Col>
+          <Link href={`edit/${note.id}`}>Edit</Link>
+        </Col>
       </Row>
     </Card.Footer>
   </Card>

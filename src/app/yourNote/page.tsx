@@ -42,7 +42,9 @@ const Yournote = () => {
       <Container className="py-3 viewnotefont">
         <Row>
           <Col className="headerGlobalNotes">
-            <h2><p>See Your Notes</p></h2>
+            <h2>
+              <p>See Your Notes</p>
+            </h2>
             <h2>
               <p>See Your Notes</p>
             </h2>
