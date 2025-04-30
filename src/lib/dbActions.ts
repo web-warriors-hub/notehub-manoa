@@ -1,6 +1,6 @@
 'use server';
 
-import { Stuff, Note } from '@prisma/client';
+import { Note } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -39,8 +39,9 @@ export async function addNote(note: {
 }
 
 /**
- * Edits an existing stuff in the database.
- * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
+ * Edits a new note to the database.
+ * @param note, an object with the following properties:
+ * email, title, department, class, semester, professor, description, documentLink
  */
 export async function editNote(note: Note) {
   // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
@@ -59,26 +60,7 @@ export async function editNote(note: Note) {
     },
   });
   // After updating, redirect to the list page
-  redirect('/list');
-}
-
-/**
- * Edits an existing stuff in the database.
- * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
- */
-export async function editStuff(stuff: Stuff) {
-  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
-  await prisma.stuff.update({
-    where: { id: stuff.id },
-    data: {
-      name: stuff.name,
-      quantity: stuff.quantity,
-      owner: stuff.owner,
-      condition: stuff.condition,
-    },
-  });
-  // After updating, redirect to the list page
-  redirect('/list');
+  redirect('/yourNote');
 }
 
 /**

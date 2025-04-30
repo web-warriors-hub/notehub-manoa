@@ -2,7 +2,7 @@
 
 import { Note } from '@prisma/client'; // Ensure you have the correct path to your prisma client
 import Link from 'next/link';
-import { Card } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 
 const NoteCard = ({ note }: { note: Note }) => (
   <Card className="h-100 w-100">
@@ -12,6 +12,7 @@ const NoteCard = ({ note }: { note: Note }) => (
         {note.class}
         -
         {note.semester}
+        {note.class}-{note.semester}
       </Card.Subtitle>
     </Card.Header>
     <Card.Body>
@@ -26,14 +27,23 @@ const NoteCard = ({ note }: { note: Note }) => (
         {note.description}
         <br />
         <strong>Document:</strong>
-        <Link href={note.documentLink} target="_blank">View</Link>
+        <Link href={note.documentLink} target="_blank">
+          View
+        </Link>
       </Card.Text>
     </Card.Body>
     <Card.Footer>
-      <small>
-        Uploaded by
-        {note.owner}
-      </small>
+      <Row>
+        <Col>
+          <small>
+            Uploaded by
+            {note.owner}
+          </small>
+        </Col>
+        <Col>
+          <Link href={`edit/${note.id}`}>Edit</Link>
+        </Col>
+      </Row>
     </Card.Footer>
   </Card>
 );
