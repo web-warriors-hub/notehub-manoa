@@ -10,14 +10,6 @@ import { EditNoteSchema } from '@/lib/validationSchemas';
 // eslint-disable-next-line import/extensions
 import { editNote } from '@/lib/dbActions';
 
-const onSubmit = async (data: Note) => {
-  // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
-  await editNote(data);
-  swal('Success', 'Your note has been updated', 'success', {
-    timer: 2000,
-  });
-};
-
 const EditNoteForm = ({ note }: { note: Note }) => {
   const {
     register,
@@ -27,7 +19,13 @@ const EditNoteForm = ({ note }: { note: Note }) => {
   } = useForm<Note>({
     resolver: yupResolver(EditNoteSchema),
   });
-  // console.log(note);
+
+  const onSubmit = async (data: Note) => {
+    await editNote(data);
+    swal('Success', 'Your note has been updated', 'success', {
+      timer: 2000,
+    });
+  };
 
   return (
     <Container className="py-3">
