@@ -12,8 +12,8 @@ const NoteCard = ({ note }: { note: Note }) => (
         {note.class}
         -
         {note.semester}
-        -Created:
-        {new Date(note.createdAt).toLocaleDateString()}
+        {/* -Created:
+        {new Date(note.createdAt).toLocaleDateString()} */}
       </Card.Subtitle>
     </Card.Header>
     <Card.Body>
