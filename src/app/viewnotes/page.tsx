@@ -31,6 +31,7 @@ const Viewnotes = () => {
     : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
       .toLowerCase()
       .includes(textInput.toLowerCase()));
+  // const filteredNotes = notes;
 
   const handleSelect = (filterValue: string) => {
     const newText = textInput ? `${textInput}, ${filterValue}` : filterValue;

@@ -7,9 +7,7 @@ const prisma = new PrismaClient();
 
 export async function GET() {
   try {
-    const notes = await prisma.note.findMany({
-      orderBy: { createdAt: 'desc' },
-    });
+    const notes = await prisma.note.findMany({});
     return NextResponse.json(notes);
   } catch (error) {
     console.error('Error fetching notes:', error);

@@ -33,6 +33,7 @@ const Yournote = () => {
     : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
       .toLowerCase()
       .includes(currentUser.toLowerCase()));
+  // const filteredNotes = notes;
 
   return (
     <main>

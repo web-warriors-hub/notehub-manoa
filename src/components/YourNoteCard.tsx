@@ -9,7 +9,9 @@ const NoteCard = ({ note }: { note: Note }) => (
     <Card.Header>
       <Card.Title>{note.title}</Card.Title>
       <Card.Subtitle>
-        {note.class}-{note.semester}
+        {note.class}
+        -
+        {note.semester}
       </Card.Subtitle>
     </Card.Header>
     <Card.Body>
