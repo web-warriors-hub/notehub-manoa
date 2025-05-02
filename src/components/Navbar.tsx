@@ -18,29 +18,23 @@ const NavBar: React.FC = () => {
   return (
     <Navbar className="navbaritems">
       <Container>
-      <Navbar.Brand>
-        <Link href="/">
-          <Image
-            src="/notehub_logo.png"
-            alt="NoteHub Logo"
-            className="logobar-img"
-            width={250}
-            height={50}
-          />
-        </Link>
-      </Navbar.Brand>
+        <Navbar.Brand className="d-flex align-items-center">
+          <Link href="/" className="text-decoration-none d-flex align-items-center gap-2">
+            <Image src="/notehub_logo.png" alt="NoteHub Logo" width={180} height={40} className="rounded-3 shadow-sm" />
+          </Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start navbaritems">
-          <Nav.Link
-            id="all-notes-nav"
-            className="navbaritems"
-            href="/viewnotes"
-            key="viewnotes"
-            active={pathName === '/viewnotes'}
-          >
-            View Notes
-          </Nav.Link>
+            <Nav.Link
+              id="all-notes-nav"
+              className="navbaritems"
+              href="/viewnotes"
+              key="viewnotes"
+              active={pathName === '/viewnotes'}
+            >
+              View Notes
+            </Nav.Link>
             {currentUser
               ? [
                   <Nav.Link
@@ -59,7 +53,7 @@ const NavBar: React.FC = () => {
                     key="yourNote"
                     active={pathName === '/yourNote'}
                   >
-                  Your Note
+                    Your Note
                   </Nav.Link>,
                 ]
               : ''}
