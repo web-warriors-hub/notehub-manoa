@@ -8,7 +8,8 @@ const Footer = () => (
     Honolulu, HI 96822
     <br />
     <br />
-    Organization:{' '}
+    Organization:
+    {' '}
     <a
       href="https://web-warriors-hub.github.io"
       target="_blank"

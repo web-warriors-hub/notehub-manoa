@@ -24,7 +24,7 @@ const SignIn = () => {
       email,
       password,
     });
-    
+
     if (!result || result.error) {
       setError('Invalid email or password');
       setInvalid(true);
@@ -71,7 +71,8 @@ const SignIn = () => {
                 </Form>
               </Card.Body>
               <Card.Footer>
-                Don&apos;t have an account?{' '}
+                Don&apos;t have an account?
+                {' '}
                 <a href="/auth/signup">Sign up</a>
               </Card.Footer>
             </Card>

@@ -9,7 +9,10 @@ const YourNoteCard = ({ note }: { note: Note }) => (
     <Card.Header className="bg-white border-bottom-0">
       <Card.Title className="mb-1 fs-2 fw-semibold text-dark">{note.title}</Card.Title>
       <Card.Subtitle className="text-sm text-muted">
-        {note.class} — {note.semester}
+        {note.class}
+        {' '}
+        —
+        {note.semester}
       </Card.Subtitle>
     </Card.Header>
 
@@ -24,7 +27,8 @@ const YourNoteCard = ({ note }: { note: Note }) => (
         <strong className="text-dark">Description: </strong>
         {note.description}
         <br />
-        <strong className="text-dark">Document: </strong>{' '}
+        <strong className="text-dark">Document: </strong>
+        {' '}
         <Link href={note.documentLink} target="_blank" className="text-success text-decoration-underline">
           View
         </Link>
@@ -35,7 +39,9 @@ const YourNoteCard = ({ note }: { note: Note }) => (
       <Row>
         <Col>
           <div className="text-muted" style={{ fontSize: '1.2rem' }}>
-            Uploaded by {note.owner}
+            Uploaded by
+            {' '}
+            {note.owner}
           </div>
         </Col>
         <Col className="text-end">
