@@ -21,12 +21,12 @@ const NavBar: React.FC = () => {
       <Navbar.Brand>
         <Link href="/">
           <Image
-          src="/notehub_logo.png"
-          alt="NoteHub Logo"
-          className="logobar-img"
-          width={250}
-          height={50}
-        />
+            src="/notehub_logo.png"
+            alt="NoteHub Logo"
+            className="logobar-img"
+            width={250}
+            height={50}
+          />
         </Link>
       </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

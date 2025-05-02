@@ -5,8 +5,8 @@
 import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import YourNoteCard from '@/components/NoteCardYourNote';
 import { Note } from '@prisma/client';
+import YourNoteCard from '@/components/NoteCardYourNote';
 
 const Yournote = () => {
   const { data: session } = useSession();
