@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Col, Container, Button, Form, Row } from 'react-bootstrap';
 import { createUser } from '@/lib/dbActions';
+import { useState } from 'react';
 
 type SignUpForm = {
   email: string;
@@ -36,11 +37,19 @@ const SignUp = () => {
     resolver: yupResolver(validationSchema),
   });
 
+  const [submitError, setSubmitError] = useState('');
+
   const onSubmit = async (data: SignUpForm) => {
-    // console.log(JSON.stringify(data, null, 2));
-    await createUser(data);
-    // After creating, signIn with redirect to the add page
-    await signIn('credentials', { callbackUrl: '/', ...data });
+    try {
+      await createUser(data);
+      await signIn('credentials', { callbackUrl: '/', ...data });
+    } catch (error: any) {
+      if (error.message.includes('Email already exists')) {
+        setSubmitError('An account with this email already exists.');
+      } else {
+        setSubmitError('Something went wrong. Please try again.');
+      }
+    }
   };
 
   return (
@@ -51,6 +60,7 @@ const SignUp = () => {
             <h1 className="text-center">Sign Up</h1>
             <Card>
               <Card.Body>
+                {submitError && <div className="alert alert-danger">{submitError}</div>}
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <Form.Group className="form-group">
                     <Form.Label>Email</Form.Label>
