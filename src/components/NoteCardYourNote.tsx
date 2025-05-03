@@ -5,43 +5,42 @@ import Link from 'next/link';
 import { Card, Col, Row } from 'react-bootstrap';
 
 const YourNoteCard = ({ note }: { note: Note }) => (
-  <Card className="h-100 w-100">
-    <Card.Header>
-      <Card.Title>{note.title}</Card.Title>
-      <Card.Subtitle>
-        {note.class}-{note.semester}
-        {/* -Created:
-        {new Date(note).toLocaleDateString()} */}
+  <Card className="h-100 w-100 border rounded-4 shadow-sm p-2 bg-white">
+    <Card.Header className="bg-white border-bottom-0">
+      <Card.Title className="mb-1 fs-2 fw-semibold text-dark">{note.title}</Card.Title>
+      <Card.Subtitle className="text-sm text-muted">
+        {note.class} —{note.semester}
       </Card.Subtitle>
     </Card.Header>
-    <Card.Body>
-      <Card.Text>
-        <strong>Professor:</strong>
+
+    <Card.Body className="pt-3">
+      <Card.Text className="text-notecard small">
+        <strong className="text-dark">Professor: </strong>
         {note.professor}
         <br />
-        <strong>Department:</strong>
+        <strong className="text-dark">Department: </strong>
         {note.department}
         <br />
-        <strong>Description:</strong>
+        <strong className="text-dark">Description: </strong>
         {note.description}
         <br />
-        <strong>Document:</strong>
-        <Link href={note.documentLink} target="_blank">
+        <strong className="text-dark">Document: </strong>{' '}
+        <Link href={note.documentLink} target="_blank" className="text-success text-decoration-underline">
           View
         </Link>
       </Card.Text>
     </Card.Body>
-    <Card.Footer>
+
+    <Card.Footer className="bg-white border-top-0">
       <Row className="align-items-center">
         <Col>
-          <small>Uploaded by {note.owner}</small>
+          <div className="text-muted" style={{ fontSize: '1.2rem' }}>
+            Uploaded by {note.owner}
+          </div>
         </Col>
         <Col className="text-end">
-          <Link href={`edit/${note.id}`} className="me-2 btn btn-sm btn-secondary">
+          <Link href={`edit/${note.id}`} className="btn btn-outline-secondary btn-lg">
             Edit
-          </Link>
-          <Link href={`delete/${note.id}`} className="btn btn-sm btn-danger">
-            Delete
           </Link>
         </Col>
       </Row>
