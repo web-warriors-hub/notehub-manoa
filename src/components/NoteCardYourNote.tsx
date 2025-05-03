@@ -34,13 +34,14 @@ const YourNoteCard = ({ note }: { note: Note }) => (
     <Card.Footer className="bg-white border-top-0">
       <Row className="align-items-center">
         <Col>
-          <div className="text-muted" style={{ fontSize: '1.2rem' }}>
-            Uploaded by {note.owner}
-          </div>
+          <small>Uploaded by {note.owner}</small>
         </Col>
         <Col className="text-end">
-          <Link href={`edit/${note.id}`} className="btn btn-outline-secondary btn-lg">
+          <Link href={`edit/${note.id}`} className="me-2 btn btn-sm btn-secondary">
             Edit
+          </Link>
+          <Link href={`delete/${note.id}`} className="btn btn-sm btn-danger">
+            Delete
           </Link>
         </Col>
       </Row>
