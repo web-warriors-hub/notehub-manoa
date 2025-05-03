@@ -64,16 +64,16 @@ export async function editNote(note: Note) {
 }
 
 /**
- * Deletes an existing stuff from the database.
- * @param id, the id of the stuff to delete.
+ * Deletes an existing Note from the database.
+ * @param id, the id of the Note to delete.
  */
-export async function deleteStuff(id: number) {
+export async function deleteNote(id: number) {
   // console.log(`deleteStuff id: ${id}`);
-  await prisma.stuff.delete({
+  await prisma.note.delete({
     where: { id },
   });
   // After deleting, redirect to the list page
-  redirect('/list');
+  redirect('/yourNote');
 }
 
 /**

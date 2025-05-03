@@ -9,9 +9,7 @@ const YourNoteCard = ({ note }: { note: Note }) => (
     <Card.Header>
       <Card.Title>{note.title}</Card.Title>
       <Card.Subtitle>
-        {note.class}
-        -
-        {note.semester}
+        {note.class}-{note.semester}
         {/* -Created:
         {new Date(note).toLocaleDateString()} */}
       </Card.Subtitle>
@@ -34,15 +32,17 @@ const YourNoteCard = ({ note }: { note: Note }) => (
       </Card.Text>
     </Card.Body>
     <Card.Footer>
-      <Row>
+      <Row className="align-items-center">
         <Col>
-          <small>
-            Uploaded by
-            {note.owner}
-          </small>
+          <small>Uploaded by {note.owner}</small>
         </Col>
-        <Col>
-          <Link href={`edit/${note.id}`}>Edit</Link>
+        <Col className="text-end">
+          <Link href={`edit/${note.id}`} className="me-2 btn btn-sm btn-secondary">
+            Edit
+          </Link>
+          <Link href={`delete/${note.id}`} className="btn btn-sm btn-danger">
+            Delete
+          </Link>
         </Col>
       </Row>
     </Card.Footer>
