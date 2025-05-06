@@ -17,9 +17,7 @@ const Yournote = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await fetch('/api/notes', {
-          cache: 'no-store',
-        });
+        const res = await fetch('/api/notes');
         const data = await res.json();
         setNotes(data);
       } catch (err) {
@@ -29,11 +27,13 @@ const Yournote = () => {
     fetchNotes();
   }, []);
 
+  // Filter based on search input
   const filteredNotes = currentUser.trim() === ''
     ? notes
     : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
       .toLowerCase()
       .includes(currentUser.toLowerCase()));
+  // const filteredNotes = notes;
 
   return (
     <main>

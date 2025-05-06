@@ -1,7 +1,6 @@
 import LandingBackground from '../components/LandingPage/LandingBackground';
 
-export const dynamic = 'force-dynamic';
-
+/** The Home page. */
 const Home = () => (
   <main>
     <LandingBackground />
