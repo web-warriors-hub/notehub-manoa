@@ -7,6 +7,7 @@ import { Col, Container, Row, Dropdown } from 'react-bootstrap';
 import NoteCard from '@/components/NoteCard';
 import { Note } from '@prisma/client';
 
+
 const Viewnotes = () => {
   const [textInput, setTextInput] = useState('');
   const [notes, setNotes] = useState<Note[]>([]);
@@ -58,7 +59,7 @@ const Viewnotes = () => {
             />
 
             <Dropdown className="mt-2 tanbox">
-              <Dropdown.Toggle variant="secondary" id="dropdown-basic" className="dropbox">
+              <Dropdown.Toggle className="custom-filter-btn" id="dropdown-basic">
                 Filter
               </Dropdown.Toggle>
               <Dropdown.Menu className="filterbox">
