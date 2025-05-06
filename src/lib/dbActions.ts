@@ -81,12 +81,20 @@ export async function deleteNote(id: number) {
  * @param credentials, an object with the following properties: email, password.
  */
 export async function createUser(credentials: { email: string; password: string }) {
-  // console.log(`createUser data: ${JSON.stringify(credentials, null, 2)}`);
-  const password = await hash(credentials.password, 10);
+  const existingUser = await prisma.user.findUnique({
+    where: { email: credentials.email },
+  });
+
+  if (existingUser) {
+    throw new Error('Email already exists');
+  }
+  const hashedPassword = await hash(credentials.password, 10);
+
+  // Create the user
   await prisma.user.create({
     data: {
       email: credentials.email,
-      password,
+      password: hashedPassword,
     },
   });
 }
