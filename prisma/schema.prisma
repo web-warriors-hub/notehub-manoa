@@ -13,8 +13,8 @@ datasource db {
   // for local development
   // url      = env("POSTGRES_URL_NEW")
   // for Vercel
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  url       = env("POSTGRES_PRISMA_URL_NEW")
+  directUrl = env("POSTGRES_URL_NON_POOLING_NEW")
 }
 
 enum Role {
