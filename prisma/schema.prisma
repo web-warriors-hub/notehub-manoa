@@ -9,13 +9,11 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  // for local development
-  // url      = env("POSTGRES_URL_NEW")
-  // for Vercel
-  url       = env("POSTGRES_URL_NEW")
-  directUrl = env("POSTGRES_URL_NON_POOLING_NEW")
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")         // runtime connection (required in production)
+  directUrl  = env("DIRECT_DATABASE_URL")  // optional for CLI only
 }
+
 
 enum Role {
   USER
