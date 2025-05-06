@@ -38,10 +38,11 @@ const YourNoteCard = ({ note }: { note: Note }) => (
     <Card.Footer className="bg-white border-top-0">
       <Row className="align-items-center">
         <Col>
-          <small>
+          <div className="text-muted" style={{ fontSize: '1.2rem' }}>
             Uploaded by
+            {' '}
             {note.owner}
-          </small>
+          </div>
         </Col>
         <Col className="text-end">
           <Link href={`edit/${note.id}`} className="me-2 btn btn-sm btn-secondary">
