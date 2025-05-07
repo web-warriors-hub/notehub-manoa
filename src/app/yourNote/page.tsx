@@ -17,7 +17,9 @@ const Yournote = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await fetch('/api/notes');
+        const res = await fetch('/api/notes', {
+          cache: 'no-store',
+        });
         const data = await res.json();
         setNotes(data);
       } catch (err) {
