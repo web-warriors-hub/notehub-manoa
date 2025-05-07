@@ -30,7 +30,7 @@ const Yournote = () => {
   // Filter based on search input
   const filteredNotes = currentUser.trim() === ''
     ? notes
-    : notes.filter((note) => `${note.title} ${note.department} ${note.class} ${note.professor} ${note.description} ${note.owner}`
+    : notes.filter((note) => `${note.owner}`
       .toLowerCase()
       .includes(currentUser.toLowerCase()));
   // const filteredNotes = notes;
