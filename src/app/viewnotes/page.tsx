@@ -7,7 +7,6 @@ import { Col, Container, Row, Dropdown } from 'react-bootstrap';
 import NoteCard from '@/components/NoteCard';
 import { Note } from '@prisma/client';
 
-
 const Viewnotes = () => {
   const [textInput, setTextInput] = useState('');
   const [notes, setNotes] = useState<Note[]>([]);
