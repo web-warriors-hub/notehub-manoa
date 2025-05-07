@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body {
+  font-family: 'Poppins', sans-serif !important;
   --bs-light-rgb: 236, 236, 236;
   box-sizing: border-box;
   height: 100%;
@@ -82,26 +85,6 @@ a {
   flex-shrink: 0;
 }
 
-/* For navbar items */
-/*.logobar {
-  width: 280px;
-  height: 80px;
-  flex-shrink: 0;
-  background: #f5bd89;
-  color: #090909;
-  border-radius: 10px;
-
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-} */
-
 .logobar {
   width: 280px;
   height: 80px;
@@ -142,12 +125,16 @@ a.navbaritems:hover,
   color: #5AA68E;
 }
 
+.navbaritems.active {
+  color: #f7c731 !important;
+}
+
+
 /* For View notes*/
 
 .headerGlobalNotes{
   color: #024731;
-
-font-family: Inter;
+font-family: 'Poppins', sans-serif !important;
 font-size: 48px;
 font-style: normal;
 font-weight: 600;
@@ -172,30 +159,140 @@ padding: 40px;
 border-radius: 10px;
 color: #000;
 margin: 20px;
-font-family: Inter;
+font-family: 'Poppins', sans-serif !important;
 font-size: 16px;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
 }
 
-.filterbox{
-  color: #FFF3E2;
+.filterbox,
+.filterbox .dropdown-item {
+  font-family: 'Poppins', sans-serif !important;
 }
+
 
 .dropbox{
   background: #FFF3E2;
   color: #024731
 }
 
-.viewnotefont{
-  font-family: Inter;
-font-size: 32px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+.viewnotefont {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .text-notecard{
   color: #555d4b
+}
+
+.custom-filter-btn {
+  font-family: 'Poppins', sans-serif !important;
+  background-color: #5AA68E !important;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+  display: inline-block;
+  text-align: center;
+}
+
+.custom-filter-btn.btn:hover,
+.custom-filter-btn.btn:focus {
+  background-color: #4b907a !important;
+  color: white !important;
+  
+}
+
+input.form-control {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px;
+}
+
+.filterbox .dropdown-item:hover {
+  background-color: #4b907a !important; 
+  color: #fff !important;
+}
+
+
+/* Custom styles for NoteCard */
+.card {
+  background-color: #f9f9f9; /* Light background */
+  border-radius: 10px;
+  border: 1px solid #ddd; /* Light border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px; /* Add some padding for content spacing */
+  font-family: 'Poppins', sans-serif; /* Font family */
+}
+
+.card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #024731; /* Dark green for title */
+}
+
+.card-body {
+  font-size: 16px;
+  color: #555; /* Light gray text */
+}
+
+/* Customize input fields */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 12px;
+  margin-bottom: 10px;
+  outline: none; /* Remove default outline */
+}
+
+.form-control:focus {
+  border-color: #5AA68E; /* Highlight border color on focus */
+  box-shadow: 0 0 5px rgba(90, 166, 142, 0.5); /* Focus shadow */
+  outline: none; /* Ensure no outline on focus */
+}
+
+/* Invalid input feedback */
+.is-invalid {
+  border-color: red;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 12px;
+}
+
+/* Custom styling for the Submit button */
+button[type='submit'] {
+  background-color: #5AA68E; /* Custom green color */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #4b907a; /* Darker green on hover */
+}
+
+/* Custom styling for the Reset button */
+button[type='button'] {
+  background-color: #f7c731; /* Yellow background */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button[type='button']:hover {
+  background-color: #f0b800; /* Darker yellow on hover */
 }
