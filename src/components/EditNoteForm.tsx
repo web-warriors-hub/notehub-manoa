@@ -9,8 +9,10 @@ import { Note } from '@prisma/client';
 import { EditNoteSchema } from '@/lib/validationSchemas';
 // eslint-disable-next-line import/extensions
 import { editNote } from '@/lib/dbActions';
+import { useRouter } from 'next/navigation';
 
 const EditNoteForm = ({ note }: { note: Note }) => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -25,6 +27,7 @@ const EditNoteForm = ({ note }: { note: Note }) => {
     swal('Success', 'Your note has been updated', 'success', {
       timer: 2000,
     });
+    router.push('/yournotes');
   };
 
   return (
