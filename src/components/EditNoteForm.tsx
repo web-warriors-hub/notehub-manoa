@@ -27,7 +27,7 @@ const EditNoteForm = ({ note }: { note: Note }) => {
     swal('Success', 'Your note has been updated', 'success', {
       timer: 2000,
     });
-    router.push('/yournotes');
+    router.push('/yourNote');
   };
 
   return (
