@@ -12,7 +12,8 @@ export async function GET() {
     return new NextResponse(JSON.stringify(notes), {
       status: 200,
       headers: {
-        'Cache-Control': 'no-store',
+        'Cache-Control': 'no-store, max-age=0, must-revalidate',
+        // Prevents caching at the server, in the browser, and at the edge (Vercel)
       },
     });
   } catch (error) {
@@ -22,7 +23,7 @@ export async function GET() {
       {
         status: 500,
         headers: {
-          'Cache-Control': 'no-store',
+          'Cache-Control': 'no-store, max-age=0, must-revalidate',
         },
       },
     );
